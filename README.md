@@ -1,6 +1,6 @@
 # Shobhit Raj - Data Engineer & Data Scientist Portfolio
 
-![Portfolio Preview](https://img.shields.io/badge/Portfolio-Live-success)
+![Portfolio Preview](file:///C:/Users/Shobhit%20Raj/Downloads/deepseek_html_20250904_f5a8bc.html)
 ![GitHub last commit](https://img.shields.io/github/last-commit/your-username/your-repo-name)
 ![GitHub issues](https://img.shields.io/github/issues/your-username/your-repo-name)
 
