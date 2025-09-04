@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shobhit Raj | Data Engineer & Data Scientist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0d1b3e;
+            --secondary: #1e3a8a;
+            --accent: #2563eb;
+            --light: #3b82f6;
+            --text: #ffffff;
+            --text-secondary: #e0e7ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(13, 27, 62, 0.95);
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 2px solid var(--light);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 5px solid var(--accent);
+            background: linear-gradient(45deg, var(--light), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            animation: fadeIn 1.5s ease;
+            overflow: hidden;
+        }
+        
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            animation: fadeIn 2s ease;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn i {
+            margin-left: 8px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: rgba(30, 58, 138, 0.5);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list li i {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+        
+        .experience-item {
+            margin-bottom: 40px;
+            background: rgba(30, 58, 138, 0.5);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .experience-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .experience-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        
+        .experience-item .date {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .experience-item ul {
+            list-style-position: inside;
+        }
+        
+        .experience-item li {
+            margin-bottom: 8px;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: rgba(30, 58, 138, 0.5);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+        
+        .project-img {
+            height: 200px;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            font-size: 3rem;
+            transition: all 0.5s;
+        }
+        
+        .project-content {
+            padding: 20px;
+            position: relative;
+        }
+        
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .project-content p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .project-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .project-btn {
+            padding: 8px 15px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .project-btn i {
+            margin-right: 5px;
+        }
+        
+        .project-btn:hover {
+            background: var(--light);
+            transform: translateY(-2px);
+        }
+        
+        .project-btn.demo {
+            background: transparent;
+            border: 1px solid var(--accent);
+        }
+        
+        .project-btn.demo:hover {
+            background: var(--accent);
+        }
+        
+        .learning-bucket {
+            background: rgba(30, 58, 138, 0.5);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .learning-bucket h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .learning-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .learning-item {
+            background: var(--secondary);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .learning-item:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background: var(--primary);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-info a {
+            color: var(--text);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animated {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s;
+        }
+        
+        .animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Particle background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(59, 130, 246, 0.3);
+            border-radius: 50%;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-img">SR</div>
+                    Shobhit<span>Raj</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#learning">Learning</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-img">
+                    <img src="" alt="Shobhit Raj">
+                    <span>SR</span>
+                </div>
+                <h1>Data Engineer & Data Scientist</h1>
+                <p>Building scalable data pipelines and enabling AI-driven workflows</p>
+                <a href="#contact" class="btn">Get in Touch <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="animated">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Data-driven and impact-focused professional</h3>
+                    <p>I'm a Data Scientist with strong academic grounding and hands-on experience in Machine Learning, Large Language Models (LLMs), Operations Research, and Advanced Analytics.</p>
+                    <p>Proficient in building and deploying end-to-end ML pipelines, developing optimization algorithms, and leveraging generative AI platforms like Amazon Bedrock to solve complex business challenges.</p>
+                    <p>Currently transitioning into Data Engineering with a focus on building scalable data pipelines and enabling AI-driven workflows.</p>
+                    <p>Awarded Circle of Excellence (twice) for impactful contributions in automation and data science initiatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="animated">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Data Engineering</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> ETL/ELT Pipelines</li>
+                        <li><i class="fas fa-check"></i> PySpark</li>
+                        <li><i class="fas fa-check"></i> Airflow</li>
+                        <li><i class="fas fa-check"></i> AWS (S3, Bedrock, Glue)</li>
+                        <li><i class="fas fa-check"></i> Data Modeling</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> SQL</li>
+                        <li><i class="fas fa-check"></i> PostgreSQL</li>
+                        <li><i class="fas fa-check"></i> MongoDB</li>
+                        <li><i class="fas fa-check"></i> Database Optimization</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Python</li>
+                        <li><i class="fas fa-check"></i> Pandas</li>
+                        <li><i class="fas fa-check"></i> NumPy</li>
+                        <li><i class="fas fa-check"></i> Scikit-learn</li>
+                        <li><i class="fas fa-check"></i> BeautifulSoup</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>ML/AI</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Regression</li>
+                        <li><i class="fas fa-check"></i> Classification</li>
+                        <li><i class="fas fa-check"></i> Neural Networks</li>
+                        <li><i class="fas fa-check"></i> LLMs & Generative AI</li>
+                        <li><i class="fas fa-check"></i> XGBoost</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Visualization</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Power BI</li>
+                        <li><i class="fas fa-check"></i> Tableau</li>
+                        <li><i class="fas fa-check"></i> Matplotlib</li>
+                        <li><i class="fas fa-check"></i> Seaborn</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Git</li>
+                        <li><i class="fas fa-check"></i> Docker</li>
+                        <li><i class="fas fa-check"></i> Streamlit</li>
+                        <li><i class="fas fa-check"></i> Flask</li>
+                        <li><i class="fas fa-check"></i> UiPath</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="animated">
+        <div class="container">
+            <div class="section-title">
+                <h2>Work Experience</h2>
+            </div>
+            <div class="experience-item">
+                <h3>Xoxoday - Revenue Operations Data Analyst</h3>
+                <span class="date">Sep 2023 - Present</span>
+                <ul>
+                    <li>Developed ML-based revenue prediction models integrated into Power BI dashboards, enhancing forecasting accuracy by 97%</li>
+                    <li>Automated data preprocessing and reporting pipelines using Python, Pandas, and UiPath, reducing manual processing time by 92%</li>
+                    <li>Utilized Amazon Bedrock to experiment with LLM-based solutions for summarizing executive insights, improving decision-making efficiency by 78%</li>
+                    <li>Automated ETL pipelines with Python & SQL for revenue reporting</li>
+                    <li>Twice awarded Circle of Excellence for automation and data science initiatives</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>CODSOFT - Data Science Intern</h3>
+                <span class="date">Aug 2023 - Sep 2023</span>
+                <ul>
+                    <li>Developed supervised learning models using Decision Trees, KNN, and Logistic Regression, enhancing predictive accuracy by 97%</li>
+                    <li>Conducted model evaluation using confusion matrix, precision-recall, and ROC analysis, optimizing model performance by 98%</li>
+                    <li>Completed multiple hands-on projects and shared reproducible code via GitHub, increasing project collaboration by 100%</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>KPMG - Data Science Intern</h3>
+                <span class="date">Feb 2023 - Mar 2023</span>
+                <ul>
+                    <li>Utilized statistical analysis to derive actionable insights from business intelligence datasets, enhancing data-driven decision-making</li>
+                    <li>Developed and maintained dashboards in Tableau and Excel for sales forecasting and campaign performance, improving forecasting accuracy by 97%</li>
+                    <li>Conducted customer segmentation and cohort analysis using behavioral data, optimizing marketing strategies and customer targeting</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="animated">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Pharmaceutical Sales Analysis</h3>
+                        <p>Power BI dashboard for analyzing pharmaceutical sales data, providing insights into sales trends, product performance, and regional analysis.</p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/shobhitexp/Pharmaceutical_sales_analysis_Powerbi" target="_blank" class="project-btn">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="#" class="project-btn demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Diabetes Prediction</h3>
+                        <p>Machine learning model to predict diabetes based on diagnostic measurements. Implemented using various classification algorithms.</p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/shobhitexp/Diabetes-Prediction" target="_blank" class="project-btn">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="#" class="project-btn demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-receipt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Savvy Bill Tracker</h3>
+                        <p>An application to track and manage bills, providing insights into spending patterns and helping users manage their finances effectively.</p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/shobhitexp/savvy-bill-tracker" target="_blank" class="project-btn">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="#" class="project-btn demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Flight Price EDA and Feature Engineering</h3>
+                        <p>Comprehensive exploratory data analysis and feature engineering for flight price data to understand factors affecting pricing.</p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/shobhitexp/SRS_Projects_Python/blob/main/Flight%20Price%20EDa%20And%20FE.ipynb" target="_blank" class="project-btn">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="#" class="project-btn demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Generative AI Summarizer</h3>
+                        <p>Automated executive reports using LLMs with Amazon Bedrock, reducing manual effort by 60%.</p>
+                        <div class="project-buttons">
+                            <a href="#" class="project-btn">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="#" class="project-btn demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sales Forecasting App</h3>
+                        <p>Time series forecasting pipeline using Prophet integrated with Power BI for sales prediction.</p>
+                        <div class="project-buttons">
+                            <a href="#" class="project-btn">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="#" class="project-btn demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="learning" class="animated">
+        <div class="container">
+            <div class="section-title">
+                <h2>Currently Learning</h2>
+            </div>
+            <div class="learning-bucket">
+                <h3>Expanding my skills in these areas</h3>
+                <div class="learning-items">
+                    <div class="learning-item">Apache Kafka</div>
+                    <div class="learning-item">Databricks</div>
+                    <div class="learning-item">Snowflake</div>
+                    <div class="learning-item">Azure Data Factory</div>
+                    <div class="learning-item">dbt (Data Build Tool)</div>
+                    <div class="learning-item">MLOps</div>
+                    <div class="learning-item">TensorFlow Extended (TFX)</div>
+                    <div class="learning-item">Kubernetes</div>
+                    <div class="learning-item">Graph Databases</div>
+                    <div class="learning-item">Real-time Data Processing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="contact-info">
+                <a href="mailto:shobhitraj4757@gmail.com">shobhitraj4757@gmail.com</a>
+                <a href="tel:+916206893845">+91 6206893845</a>
+                <a href="#">Bengaluru, Karnataka, India</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/shobhit-raj" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/shobhitexp" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2023 Shobhit Raj. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animated');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Create particle background
+            createParticles();
+        });
+        
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 20 + 5;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 5;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Instructions for adding your image
+        /*
+        To add your actual image:
+        1. Add your photo file to the same folder as this HTML file
+        2. Name it "shobhit.jpg" (or update the src attribute below)
+        3. Uncomment the following lines:
+        */
+        
+        // document.querySelector('.profile-img img').style.display = 'block';
+        // document.querySelector('.profile-img span').style.display = 'none';
+        // document.querySelector('.profile-img img').src = 'shobhit.jpg';
+    </script>
+</body>
+</html>
