@@ -1,4 +1,4 @@
-# Shobhit Raj - Data Engineer & Data Scientist Portfolio
+# Shobhit Raj - Data Engineer & Data Scientist & Data Analytics Portfolio
 
 ![Portfolio Preview](https://img.shields.io/badge/Portfolio-Live-success)
 ![GitHub last commit](https://img.shields.io/github/last-commit/your-username/your-repo-name)
